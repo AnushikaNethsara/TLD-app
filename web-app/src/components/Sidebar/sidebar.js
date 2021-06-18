@@ -53,7 +53,7 @@ const Sidebar = () => {
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          <NavIcon >
+          <NavIcon>
             <button type="button" class="btn btn-primary signout-btn">
               Sign Out
             </button>

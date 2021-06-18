@@ -8,6 +8,7 @@ import UserContext from "./context/userContext";
 import Navbar from "./components/nav/Navbar";
 import constants from "./constants/constants";
 import Home from "./pages/Home";
+import Application from "./pages/Application";
 import Dashboard from "./pages/Dashboard";
 
 export default function App() {
@@ -48,7 +49,9 @@ export default function App() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-        <Dashboard />
+          <Dashboard />
+          <Route path="/home" exact component={Home} />
+          <Route path="/application" exact component={Application} />
           {/* <Navbar />          
           <div className="container">
             <Switch>
