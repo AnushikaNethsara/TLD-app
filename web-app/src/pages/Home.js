@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div>
         <Jumbotron>
-          <h2 className="text-center">Welcome to TLD-APP</h2>
+          <h1 className="text-center mt-5">Welcome to TLD-APP</h1>
         </Jumbotron>
       </div>
     );

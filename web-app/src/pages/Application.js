@@ -4,9 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 export default function Application() {
   return (
     <Container>
-      <h1 className="text-center" style={{ marginTop: "20px" }}>
+      <h2 className="text-center" style={{ marginTop: "20px" }}>
         Application For Trade License
-      </h1>
+      </h2>
 
       <hr></hr>
 
@@ -122,7 +122,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Middle Name :
                   </label>
                 </div>
               </Col>
@@ -144,7 +144,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Father/Husband First Name :
                   </label>
                 </div>
               </Col>
@@ -167,7 +167,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Last Name :
                   </label>
                 </div>
               </Col>
@@ -189,7 +189,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Middle Name :
                   </label>
                 </div>
               </Col>
@@ -212,7 +212,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Pla Code :
                   </label>
                 </div>
               </Col>
@@ -234,7 +234,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Last Name :
                   </label>
                 </div>
               </Col>
@@ -257,7 +257,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Owner SSSID No. :
                   </label>
                 </div>
               </Col>
@@ -279,7 +279,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Father/Husband :
                   </label>
                 </div>
               </Col>
@@ -302,17 +302,17 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Email (if any) :
                   </label>
                 </div>
               </Col>
               <Col>
                 <div className="col-auto">
                   <input
-                    type="text"
-                    id="inputPassword6"
-                    className="form-control form-control-sm "
-                    aria-describedby="passwordHelpInline"
+                    type="email"
+                    class="form-control form-control-sm"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
                     size="sm"
                   />
                 </div>
@@ -324,7 +324,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Residence Door No :
                   </label>
                 </div>
               </Col>
@@ -347,7 +347,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Phone No. :
                   </label>
                 </div>
               </Col>
@@ -369,7 +369,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Residence Address ( Line 1 ) :
                   </label>
                 </div>
               </Col>
@@ -380,6 +380,75 @@ export default function Application() {
                     id="inputPassword6"
                     className="form-control form-control-sm"
                     aria-describedby="passwordHelpInline"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Row>
+              <Col>
+                <div className="col-auto">
+                  <label htmlFor="inputPassword6" className="col-form-label">
+                    Fax :
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <div className="col-auto">
+                  <input
+                    type="text"
+                    id="inputPassword6"
+                    className="form-control form-control-sm "
+                    aria-describedby="passwordHelpInline"
+                    size="sm"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+          <Col md={6}>
+            <Row>
+              <Col>
+                <div className="col-auto">
+                  <label htmlFor="inputPassword6" className="col-form-label">
+                    Residence Address ( Line 2 ) :
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <div className="col-auto">
+                  <input
+                    type="text"
+                    id="inputPassword6"
+                    className="form-control form-control-sm"
+                    aria-describedby="passwordHelpInline"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Row>
+              <Col>
+                <div className="col-auto">
+                  <label htmlFor="inputPassword6" className="col-form-label">
+                    City :
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <div className="col-auto">
+                  <input
+                    type="text"
+                    id="inputPassword6"
+                    className="form-control form-control-sm "
+                    aria-describedby="passwordHelpInline"
+                    size="sm"
                   />
                 </div>
               </Col>
@@ -400,7 +469,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade Title :
                   </label>
                 </div>
               </Col>
@@ -423,7 +492,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Revenue Ward No :
                   </label>
                 </div>
               </Col>
@@ -446,7 +515,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade Type :
                   </label>
                 </div>
               </Col>
@@ -468,7 +537,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Zone No. :
                   </label>
                 </div>
               </Col>
@@ -505,7 +574,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade Nature :
                   </label>
                 </div>
               </Col>
@@ -527,7 +596,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Election Ward No :
                   </label>
                 </div>
               </Col>
@@ -550,7 +619,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade Door No :
                   </label>
                 </div>
               </Col>
@@ -572,7 +641,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Building Permission No :
                   </label>
                 </div>
               </Col>
@@ -595,7 +664,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade Address ( Line 1 ) :
                   </label>
                 </div>
               </Col>
@@ -617,7 +686,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    Assessment No :
                   </label>
                 </div>
               </Col>
@@ -640,7 +709,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade Address ( Line 2 ) :
                   </label>
                 </div>
               </Col>
@@ -662,7 +731,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    District :
+                    City :
                   </label>
                 </div>
               </Col>
@@ -685,7 +754,7 @@ export default function Application() {
               <Col>
                 <div className="col-auto">
                   <label htmlFor="inputPassword6" className="col-form-label">
-                    Owner First Name :
+                    Trade License Required Form Data :
                   </label>
                 </div>
               </Col>
