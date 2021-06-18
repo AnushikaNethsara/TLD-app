@@ -1,0 +1,17 @@
+.signout-btn {
+  margin-left: 1700px;
+}
+
+@media screen and (max-width: 991px) {
+  .signout-btn {
+    margin-left: 540px;
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .signout-btn {
+    margin-left: 160px;
+    flex-basis: 100%;
+  }
+}

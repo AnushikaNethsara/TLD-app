@@ -6,6 +6,7 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./Submenu";
 import { IconContext } from "react-icons/lib";
+import "./sidebar.css";
 
 const Nav = styled.div`
   background: #15171c;
@@ -20,7 +21,6 @@ const NavIcon = styled(Link)`
   font-size: 2rem;
   height: 80px;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -52,6 +52,11 @@ const Sidebar = () => {
         <Nav>
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
+          </NavIcon>
+          <NavIcon >
+            <button type="button" class="btn btn-primary signout-btn">
+              Sign Out
+            </button>
           </NavIcon>
         </Nav>
         <SidebarNav sidebar={sidebar}>
