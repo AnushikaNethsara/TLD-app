@@ -10,7 +10,7 @@ export class navbar extends Component {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container fluid>
-          <Link class="navbar-brand" to="/">
+          <Link class="navbar-brand" to="/home">
             TLD APP
           </Link>
           {/* <Navbar.Brand href="#home">Dashboard</Navbar.Brand> */}

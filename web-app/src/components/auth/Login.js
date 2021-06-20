@@ -5,6 +5,7 @@ import Axios from "axios";
 import ErrorNotice from "../misc/ErrorNotice";
 import Cal from "../../images/cal.png";
 import constants from "../../constants/constants";
+import Navbar from "../nav/Navbar"
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -27,13 +28,19 @@ export default function Login() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/dashboard");
+      if (loginRes.data.user.role==="user"){
+        history.push("/home");
+      }else{
+        history.push("/dashboard");
+      }
+      
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }
   };
   return (
     <div>
+      <Navbar />
       <div
         class="  p-3 mb-2  text-white "
       //   style={{ backgroundImage: `url(${bg2})` }}

@@ -9,6 +9,7 @@ export default function AuthOptions() {
 
   const register = () => history.push("/register");
   const login = () => history.push("/login");
+  const home = () => history.push("/home");
   const example = () => history.push("/example");
   const logout = () => {
     setUserData({
@@ -24,6 +25,13 @@ export default function AuthOptions() {
     <nav className="auth-options">
       {userData.user ? (
         <>
+          <button
+            class="btn btn-outline-secondary mx-2"
+            onClick={home}
+            style={{ borderRadius: "4rem" }}
+          >
+            Home
+          </button>
           <button
             class="btn btn-outline-secondary mx-2"
             onClick={logout}

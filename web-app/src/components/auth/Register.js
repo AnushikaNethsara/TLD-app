@@ -6,10 +6,12 @@ import UserContext from "../../context/userContext";
 import ErrorNotice from "../misc/ErrorNotice";
 import Cal from "../../images/cal.png";
 import constants from "../../constants/constants";
+import Navbar from "../nav/Navbar"
 
 export default function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [role, setRole] = useState("user");
   const [passwordCheck, setPasswordCheck] = useState();
   const [displayName, setDisplayName] = useState();
   const [error, setError] = useState();
@@ -18,9 +20,11 @@ export default function Register() {
   const history = useHistory();
 
   const submit = async (e) => {
+    
     e.preventDefault();
     try {
-      const newUser = { email, password, passwordCheck, displayName };
+   
+      const newUser = { email, password, passwordCheck, displayName, role };
       await Axios.post(constants.backend_url + "/users/register", newUser);
       const loginRes = await Axios.post(constants.backend_url + "/users/login", {
         email,
@@ -31,7 +35,7 @@ export default function Register() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/dashboard");
+      history.push("/home");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }
@@ -39,6 +43,7 @@ export default function Register() {
 
   return (
     <div>
+      <Navbar />
       <div
         class="  p-3 mb-2  text-white "
       //   style={{ backgroundImage: `url(${bg2})` }}
