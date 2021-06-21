@@ -7,8 +7,8 @@ import Register from "./components/auth/Register";
 import UserContext from "./context/userContext";
 import Navbar from "./components/nav/Navbar";
 import constants from "./constants/constants";
-import Home from "./pages/Home";
-import Application from "./pages/Application";
+import adminapplicationpage from "./pages/AdminApplicationPage";
+import AdminSignup from "./pages/AdminSignup";
 import Dashboard from "./pages/Dashboard";
 
 export default function App() {
@@ -49,13 +49,13 @@ export default function App() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-
-          
-          
           <Switch>
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route path="/home" exact component={Home} />
-            <Route path="/application" exact component={Application} />
+            <Route path="/adminsignup" component={AdminSignup} />
+            <Route
+              path="/adminapplicationpage"
+              component={adminapplicationpage}
+            />
             <Route path="/register" component={Register} />
             <Route path="/" component={Login} />
           </Switch>

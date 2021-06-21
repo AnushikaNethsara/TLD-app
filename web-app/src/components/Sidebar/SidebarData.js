@@ -5,29 +5,29 @@ import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
 
 export const SidebarData = [
-  {
-    title: "Home",
-    path: "/home",
-    icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+  // {
+  //   title: "Home",
+  //   path: "/home",
+  //   icon: <AiIcons.AiFillHome />,
+  //   iconClosed: <RiIcons.RiArrowDownSFill />,
+  //   iconOpened: <RiIcons.RiArrowUpSFill />,
 
-    // subNav: [
-    //   {
-    //     title: 'Users',
-    //     path: '/overview/users',
-    //     icon: <IoIcons.IoIosPaper />
-    //   },
-    //   {
-    //     title: 'Revenue',
-    //     path: '/overview/revenue',
-    //     icon: <IoIcons.IoIosPaper />
-    //   }
-    // ]
-  },
+  //   subNav: [
+  //     {
+  //       title: 'Users',
+  //       path: '/overview/users',
+  //       icon: <IoIcons.IoIosPaper />
+  //     },
+  //     {
+  //       title: 'Revenue',
+  //       path: '/overview/revenue',
+  //       icon: <IoIcons.IoIosPaper />
+  //     }
+  //   ]
+  // },
   {
-    title: "Application",
-    path: "/application",
+    title: "Applications",
+    path: "/adminapplicationpage",
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -53,8 +53,8 @@ export const SidebarData = [
     // ],
   },
   {
-    title: "Messages",
-    path: "/messages",
+    title: "Admin Signup",
+    path: "/adminsignup",
     icon: <FaIcons.FaEnvelopeOpenText />,
 
     iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -73,9 +73,9 @@ export const SidebarData = [
     //   },
     // ],
   },
-  {
-    title: "Support",
-    path: "/support",
-    icon: <IoIcons.IoMdHelpCircle />,
-  },
+  // {
+  //   title: "Support",
+  //   path: "/support",
+  //   icon: <IoIcons.IoMdHelpCircle />,
+  // },
 ];
