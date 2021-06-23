@@ -10,6 +10,7 @@ import constants from "./constants/constants";
 import adminapplicationpage from "./pages/AdminApplicationPage";
 import AdminSignup from "./pages/AdminSignup";
 import Dashboard from "./pages/Dashboard";
+import Application from "./pages/Application";
 
 export default function App() {
   const [userData, setUserData] = useState({
@@ -57,6 +58,7 @@ export default function App() {
               component={adminapplicationpage}
             />
             <Route path="/register" component={Register} />
+            <Route path="/apply" component={Application} />
             <Route path="/" component={Login} />
           </Switch>
         </UserContext.Provider>
