@@ -109,7 +109,7 @@ let application = new Schema({
         required: true
     },
     zoneNo :{
-        type :Number,
+        type :String,
         required: true
     },
     permissionNo :{
@@ -125,6 +125,14 @@ let application = new Schema({
         required: true
     },
     tDistrict :{
+        type: String,
+        required: true
+    },
+    tradeDoorNo :{
+        type: String,
+        required: true
+    },
+    revenueWardNo :{
         type: String,
         required: true
     }

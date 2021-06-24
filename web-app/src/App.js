@@ -9,6 +9,7 @@ import Navbar from "./components/nav/Navbar";
 import constants from "./constants/constants";
 import adminapplicationpage from "./pages/AdminApplicationPage";
 import AdminSignup from "./pages/AdminSignup";
+import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Application from "./pages/Application";
 
@@ -58,8 +59,10 @@ export default function App() {
               component={adminapplicationpage}
             />
             <Route path="/register" component={Register} />
-            <Route path="/apply" component={Application} />
+            <Route path="/application" component={Application} />
+            <Route path="/home" component={Home} />
             <Route path="/" component={Login} />
+           
           </Switch>
         </UserContext.Provider>
       </BrowserRouter>
