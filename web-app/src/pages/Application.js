@@ -94,7 +94,7 @@ export default function Application() {
       await Axios.post(constants.backend_url + "/application/register", newApplication).then((res) => console.log(res.data));
       
       
-      ///history.push("/home");
+      history.push("/home");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }

@@ -7,6 +7,7 @@ class Dashboard extends Component {
     return (
       <div>
         <Sidebar />
+        Test dashboard
       </div>
     );
   }
