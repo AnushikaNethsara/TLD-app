@@ -11,7 +11,7 @@ import Sidebar from "../components/Sidebar/sidebar";
 export default function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [role, setRole] = useState("user");
+  const [role, setRole] = useState("admin");
   const [passwordCheck, setPasswordCheck] = useState();
   const [displayName, setDisplayName] = useState();
   const [error, setError] = useState();
@@ -36,7 +36,7 @@ export default function Register() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/home");
+      history.push("/adminapplicationpage");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }

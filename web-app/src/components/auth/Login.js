@@ -31,7 +31,7 @@ export default function Login() {
       if (loginRes.data.user.role==="user"){
         history.push("/home");
       }else{
-        history.push("/dashboard");
+        history.push("/adminapplicationpage");
       }
       
     } catch (err) {
