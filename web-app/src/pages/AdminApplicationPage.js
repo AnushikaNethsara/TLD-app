@@ -12,6 +12,7 @@ import {
 import { matchSorter } from "match-sorter";
 import constants from "../constants/constants";
 import Axios from "axios";
+import "./style.css";
 
 const Styles = styled.div`
   padding: 1rem;
