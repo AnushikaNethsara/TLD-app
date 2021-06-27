@@ -12,6 +12,7 @@ import AdminSignup from "./pages/AdminSignup";
 import Home from "./pages/Home";
 import Application from "./pages/Application";
 import MyApplications from "./pages/MyApplications"
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
   const [userData, setUserData] = useState({
@@ -56,7 +57,7 @@ export default function App() {
           <Switch>
             <Route path="/my-applications" component={MyApplications} />
             <Route path="/adminsignup" component={AdminSignup} />
-            
+            <Route path="/dashboard" component={Dashboard} />
             <Route
               path="/adminapplicationpage"
               component={adminapplicationpage}
