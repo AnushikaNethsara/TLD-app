@@ -15,7 +15,7 @@ app.listen(PORT, () => console.log(`The server has started on port: ${PORT}`));
 
 // set up mongoose
 mongoose.connect(
-  process.env.MONGO_URL,
+  process.env.MONGO_URL2,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (!err) console.log("mongo db connected successfully");

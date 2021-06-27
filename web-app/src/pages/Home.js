@@ -12,8 +12,7 @@ class Home extends Component {
   };
   constructor() {
     super();
-    this.state = {
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -32,7 +31,12 @@ class Home extends Component {
               <button type="button" className="btn btn-primary">
                 Go to Application
               </button>
-            </Link>           
+            </Link>
+            <Link to="/adminapplicationpage">
+              <button type="button" className="btn btn-primary">
+                Go to Application
+              </button>
+            </Link>
           </div>
         </Jumbotron>
       </div>

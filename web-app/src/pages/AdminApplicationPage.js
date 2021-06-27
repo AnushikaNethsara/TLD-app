@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar/sidebar";
-import { Container } from "react-bootstrap";
+import { Container, Button, Modal } from "react-bootstrap";
 import {
   useTable,
   useFilters,
@@ -357,6 +357,10 @@ filterGreaterThan.autoRemove = (val) => typeof val !== "number";
 
 export default function AdminApplicationPage() {
   const [applications, getApplications] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     getAllApplications();
@@ -374,6 +378,14 @@ export default function AdminApplicationPage() {
   };
 
   console.log(applications);
+
+  const showButton = () => {
+    return (
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+    );
+  };
 
   const columns = React.useMemo(
     () => [
@@ -526,6 +538,7 @@ export default function AdminApplicationPage() {
           {
             Header: "Status",
             accessor: "status",
+            Cell: showButton,
           },
         ],
       },
@@ -546,6 +559,21 @@ export default function AdminApplicationPage() {
           </Styles>
         </div>
       </Container>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
