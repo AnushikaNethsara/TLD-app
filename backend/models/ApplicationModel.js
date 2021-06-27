@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema= mongoose.Schema;
 
+//application form model
 let application = new Schema({
     UID :{
         type :String,
@@ -50,7 +51,7 @@ let application = new Schema({
         type :String,
         required: true
     },
-    district :{
+    country :{
         type :String,
         required: true
     },
@@ -110,7 +111,7 @@ let application = new Schema({
     },
     zoneNo :{
         type :String,
-        required: true
+        required: false
     },
     permissionNo :{
         type :Number,
@@ -124,7 +125,7 @@ let application = new Schema({
         type :String,
         required: true
     },
-    tDistrict :{
+    tCountry:{
         type: String,
         required: true
     },
@@ -135,7 +136,16 @@ let application = new Schema({
     revenueWardNo :{
         type: String,
         required: true
-    }
+    },
+    status:{
+        type: String,
+        required: true
+    },
+    submitedEmail:{
+        type: String,
+        required: true
+    },
+    
 });
 
 module.exports = mongoose.model('Application',application);

@@ -14,9 +14,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`The server has started on port: ${PORT}`));
 
 // set up mongoose
-
-//'mongodb://localhost:27017/Registration'
-
 mongoose.connect(
   process.env.MONGO_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -27,5 +24,6 @@ mongoose.connect(
   }
 );
 
+//import routers
 app.use("/users", require("./routes/userRouter"));
 app.use("/application", require("./routes/ApplicationRoute"));

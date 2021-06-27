@@ -2,9 +2,25 @@ import React, { Component } from "react";
 import { Jumbotron } from "react-bootstrap";
 import Navbar from "../components/nav/Navbar";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class Home extends Component {
-  state = {};
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+  };
+  constructor() {
+    super();
+    this.state = {
+    };
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem("auth-token") == "") {
+      this.props.history.push("/");
+    }
+  }
   render() {
     return (
       <div>
@@ -16,11 +32,7 @@ class Home extends Component {
               <button type="button" className="btn btn-primary">
                 Go to Application
               </button>
-            </Link>
-            <br></br>
-            <Link to="/adminapplicationpage" className="btn btn-dark">
-              Admin Application Page
-            </Link>
+            </Link>           
           </div>
         </Jumbotron>
       </div>

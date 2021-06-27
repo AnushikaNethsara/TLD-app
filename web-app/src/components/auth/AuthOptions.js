@@ -10,6 +10,7 @@ export default function AuthOptions() {
   const register = () => history.push("/register");
   const login = () => history.push("/login");
   const home = () => history.push("/home");
+  const myapps = () => history.push("/my-applications");
   const example = () => history.push("/example");
   const logout = () => {
     setUserData({
@@ -31,6 +32,13 @@ export default function AuthOptions() {
             style={{ borderRadius: "4rem" }}
           >
             Home
+          </button>
+          <button
+            class="btn btn-outline-secondary mx-2"
+            onClick={myapps}
+            style={{ borderRadius: "4rem" }}
+          >
+            My Applications
           </button>
           <button
             class="btn btn-outline-secondary mx-2"

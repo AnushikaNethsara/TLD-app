@@ -10,8 +10,8 @@ import constants from "./constants/constants";
 import adminapplicationpage from "./pages/AdminApplicationPage";
 import AdminSignup from "./pages/AdminSignup";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
 import Application from "./pages/Application";
+import MyApplications from "./pages/MyApplications"
 
 export default function App() {
   const [userData, setUserData] = useState({
@@ -22,8 +22,10 @@ export default function App() {
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
-      if (token === null) {
+      let authEmail = localStorage.getItem("auth-email");
+      if (token === null && authEmail) {
         localStorage.setItem("auth-token", "");
+        localStorage.setItem("auth-email", "");
         token = "";
       }
 
@@ -52,8 +54,9 @@ export default function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route path="/my-applications" component={MyApplications} />
             <Route path="/adminsignup" component={AdminSignup} />
+            
             <Route
               path="/adminapplicationpage"
               component={adminapplicationpage}

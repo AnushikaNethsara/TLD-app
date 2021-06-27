@@ -7,7 +7,7 @@ import ErrorNotice from "../misc/ErrorNotice";
 import Cal from "../../images/cal.png";
 import constants from "../../constants/constants";
 import Navbar from "../nav/Navbar"
-
+//
 export default function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();

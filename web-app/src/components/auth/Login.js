@@ -28,6 +28,7 @@ export default function Login() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
+      localStorage.setItem("auth-email", loginRes.data.user.email);
       if (loginRes.data.user.role==="user"){
         history.push("/home");
       }else{

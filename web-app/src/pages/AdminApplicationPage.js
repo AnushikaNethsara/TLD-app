@@ -8,7 +8,6 @@ import {
   useGlobalFilter,
   useAsyncDebounce,
 } from "react-table";
-// A great library for fuzzy filtering/sorting items
 import { matchSorter } from "match-sorter";
 import constants from "../constants/constants";
 import Axios from "axios";
@@ -403,8 +402,8 @@ export default function AdminApplicationPage() {
             accessor: "fName",
           },
           {
-            Header: "District",
-            accessor: "district",
+            Header: "Country",
+            accessor: "country",
           },
           {
             Header: "Middle Name",
@@ -521,8 +520,12 @@ export default function AdminApplicationPage() {
             accessor: "tCity",
           },
           {
-            Header: "District",
-            accessor: "tDistrict",
+            Header: "Country",
+            accessor: "tCountry",
+          },
+          {
+            Header: "Status",
+            accessor: "status",
           },
         ],
       },

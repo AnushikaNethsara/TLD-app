@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "../css/style.css";
 import Axios from "axios";
 import UserContext from "../context/userContext";
-// import ErrorNotice from "../misc/ErrorNotice";
+import ErrorNotice from "../components/misc/ErrorNotice";
 import Cal from "../images/cal.png";
 import constants from "../constants/constants";
 import Sidebar from "../components/Sidebar/sidebar";
@@ -19,35 +19,31 @@ export default function Register() {
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
 
+  //submit admin data
   const submit = async (e) => {
     e.preventDefault();
     try {
       const newUser = { email, password, passwordCheck, displayName, role };
       await Axios.post(constants.backend_url + "/users/register", newUser);
-      const loginRes = await Axios.post(
-        constants.backend_url + "/users/login",
-        {
-          email,
-          password,
-        }
-      );
-      setUserData({
-        token: loginRes.data.token,
-        user: loginRes.data.user,
-      });
-      localStorage.setItem("auth-token", loginRes.data.token);
       history.push("/adminapplicationpage");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }
   };
 
+  //chech user loggedin 
+  useEffect(() => {
+    if (localStorage.getItem("auth-token") == "") {
+      history.push("/");
+    }
+  }, [])
+
+
   return (
     <div>
       <Sidebar />
       <div
         class="  p-3 mb-2  text-white "
-        //   style={{ backgroundImage: `url(${bg2})` }}
       >
         <div
           class="container-lg  shadow p-3 mb-5  text-dark  "
@@ -66,13 +62,13 @@ export default function Register() {
                   <div class="mx-auto">
                     <h2>Admin Sign Up</h2>
                   </div>
-                  <p>Please Signup Before login to your Acount</p>
-                  {/* {error && (
+                  <p>Please Signup Before login to your Account</p>
+                  {error && (
                     <ErrorNotice
                       message={error}
                       clearError={() => setError(undefined)}
                     />
-                  )} */}
+                  )}
                   <div>
                     <form onSubmit={submit}>
                       <div className="mb-2">
@@ -145,41 +141,3 @@ export default function Register() {
         </div>
       </div>
     </div>
-
-    //   <div className="page">
-    //   <h2>Register</h2>
-    //   {error && (
-    //     <ErrorNotice message={error} clearError={() => setError(undefined)} />
-    //   )}
-    //   <form className="form" onSubmit={submit}>
-    //     <label htmlFor="register-email">Email</label>
-    //     <input
-    //       id="register-email"
-    //       type="email"
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-
-    //     <label htmlFor="register-password">Password</label>
-    //     <input
-    //       id="register-password"
-    //       type="password"
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="Verify password"
-    //       onChange={(e) => setPasswordCheck(e.target.value)}
-    //     />
-
-    //     <label htmlFor="register-display-name">Display name</label>
-    //     <input
-    //       id="register-display-name"
-    //       type="text"
-    //       onChange={(e) => setDisplayName(e.target.value)}
-    //     />
-
-    //     <input type="submit" value="Register" />
-    //   </form>
-    // </div>
-  );
-}

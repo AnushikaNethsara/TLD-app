@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const router = express.Router();
 let Application = require('../models/ApplicationModel');
 
+
+//application form router//
 router.post("/register", async (req, res) => {
     try {
         const UID= req.body.UID;  
@@ -17,7 +19,7 @@ router.post("/register", async (req, res) => {
         const phone= Number(req.body.phone) ;
         const fax= Number(req.body.fax) ;
         const city= req.body.city;
-        const district= req.body.district;
+        const country = req.body.country;
         const spouseFName= req.body.spouseFName;
         const spouseMName= req.body.spouseMName;
         const spouseLName= req.body.spouseLName;
@@ -36,9 +38,11 @@ router.post("/register", async (req, res) => {
         const permissionNo= Number(req.body.permissionNo) ;
         const assessmentNo= Number(req.body.assessmentNo) ;
         const tCity= req.body.tCity;
-        const tDistrict = req.body.tDistrict; 
+        const tCountry = req.body.tCountry; 
         const tradeDoorNo= req.body.tradeDoorNo;
         const revenueWardNo= req.body.revenueWardNo;
+        const status = req.body.status;
+        const submitedEmail = req.body.submitedEmail;
 
         const application = new Application ({
             UID ,
@@ -53,7 +57,7 @@ router.post("/register", async (req, res) => {
             phone ,
             fax ,
             city ,
-            district ,
+            country ,
             spouseFName ,
             spouseMName ,
             spouseLName ,
@@ -72,9 +76,11 @@ router.post("/register", async (req, res) => {
             permissionNo ,
             assessmentNo ,
             tCity ,
-            tDistrict ,
+            tCountry ,
             tradeDoorNo ,
-            revenueWardNo 
+            revenueWardNo ,
+            status,
+            submitedEmail
         });
 
         application.save()
@@ -98,4 +104,38 @@ router.route('/getAllDetails').get(function (req,res) {
         res.status(500).json(err);
     });
 });
+
+
+//get application forms by email
+router.get("/:email", async (req, res) => {
+    try {
+        await Application.find({ submitedEmail: req.params.email })
+            .exec()
+            .then((application) => {
+                res.json(application);
+            })
+            .catch((err) => res.status(400).json("Error : " + err));
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+//update application status
+router.put("/:id", async (req, res) => {
+    try {
+        await Application.findById(req.params.id).then((application) => {
+            application.status = req.body.status;
+            application
+                .save()
+                .then(() =>
+                    res.status(200).json({ msg: "You've Updated the application!" })
+                )
+                .catch((err) => res.status(400).json({ error: err.message }));
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
 module.exports = router;;
