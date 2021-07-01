@@ -954,7 +954,7 @@ export default function Application() {
                     <Col>
                       <div className="col-auto">
                         <label htmlFor="inputPassword6" className="col-form-label">
-                          District :
+                          Country :
                         </label>
                       </div>
                     </Col>

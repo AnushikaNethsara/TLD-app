@@ -32,11 +32,11 @@ class Home extends Component {
                 Go to Application
               </button>
             </Link>
-            <Link to="/adminapplicationpage">
+            {/* <Link to="/adminapplicationpage">
               <button type="button" className="btn btn-primary">
                 Go to Application
               </button>
-            </Link>
+            </Link> */}
           </div>
         </Jumbotron>
       </div>

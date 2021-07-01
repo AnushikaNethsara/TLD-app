@@ -243,8 +243,8 @@ function Table({ columns, data }) {
           const rowValue = row.values[id];
           return rowValue !== undefined
             ? String(rowValue)
-                .toLowerCase()
-                .startsWith(String(filterValue).toLowerCase())
+              .toLowerCase()
+              .startsWith(String(filterValue).toLowerCase())
             : true;
         });
       },
@@ -358,6 +358,8 @@ filterGreaterThan.autoRemove = (val) => typeof val !== "number";
 export default function AdminApplicationPage() {
   const [applications, getApplications] = useState([]);
   const [show, setShow] = useState(false);
+  const [updateId, setUpdateId] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -365,6 +367,21 @@ export default function AdminApplicationPage() {
   useEffect(() => {
     getAllApplications();
   }, []);
+
+
+  //update application status
+  const update = () => {
+    console.log("sra: " + status)
+    Axios.put(constants.backend_url + "/application/" + updateId, { status: status })
+      .then((res) => {
+        getAllApplications();
+        handleClose();
+        setUpdateId("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   const getAllApplications = () => {
     Axios.get(constants.backend_url + "/application/getAllDetails")
@@ -379,13 +396,17 @@ export default function AdminApplicationPage() {
 
   console.log(applications);
 
-  const showButton = () => {
+  const showButton = (id) => {
     return (
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+      <div className="ml-5">
+        <Button variant="primary" onClick={() => { handleShow(); setUpdateId(id) }} >
+          Update
+        </Button>
+      </div>
+
     );
   };
+
 
   const columns = React.useMemo(
     () => [
@@ -538,7 +559,12 @@ export default function AdminApplicationPage() {
           {
             Header: "Status",
             accessor: "status",
-            Cell: showButton,
+          },
+          {
+            Header: "Update Status",
+            //accessor: "status",
+            accessor: d => showButton(d._id)
+            // Cell: showButton(),
           },
         ],
       },
@@ -559,21 +585,55 @@ export default function AdminApplicationPage() {
           </Styles>
         </div>
       </Container>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Update Application Status</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <div>
+            <div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="radio1"
+                  value={"Pending"}
+                  onChange={(e) => { setStatus(e.target.value) }}
+                />
+                <label className="form-check-label" htmlFor="radio1">
+                  Pending
+                </label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="radio2"
+                  value={"Accept"}
+                  onChange={(e) => { setStatus(e.target.value) }}
+                />
+                <label className="form-check-label" htmlFor="radio2">
+                  Accept
+                </label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="radio3"
+                  value={"Rejected"}
+                  onChange={(e) => { setStatus(e.target.value) }}
+                />
+                <label className="form-check-label" htmlFor="radio3">
+                  Rejected
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={() => update()}>
             Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
+
+
     </>
   );
 }

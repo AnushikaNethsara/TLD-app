@@ -6,13 +6,14 @@ import { Jumbotron, Modal, Box } from "react-bootstrap";
 const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [status, setStatus] = useState("");
+  const update = () => {
+    console.log("sra: " + status)
+  }
 
   const handleModal = () => {
     setShow(!show);
   }
-  const update = () => {
-    console.log("sra: " + status)
-  }
+ 
   return (
     <div>
       <Jumbotron>
