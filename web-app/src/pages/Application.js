@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Modal } from "react-bootstrap";
-import Navbar from "../components/nav/Navbar"
+import Navbar from "../components/nav/Navbar";
 import Axios from "axios";
 import constants from "../constants/constants";
 import { useHistory } from "react-router-dom";
 
 export default function Application() {
   const [uid, setUid] = useState("");
-  const [citizenRagistrationNumber, setCitizenRagistrationNumber] = useState("");
+  const [citizenRagistrationNumber, setCitizenRagistrationNumber] =
+    useState("");
   const [uniqueApplicationId, setUniqueApplicationId] = useState("");
   const [ownerFirstName, setOwnerFirstName] = useState();
   const [ocountry, setOCountry] = useState();
@@ -38,14 +39,14 @@ export default function Application() {
   const [assessmentNo, setAssessmentNo] = useState();
   const [tradeAddressLine2, setTradeAddressLine2] = useState();
   const [tCity, setTCity] = useState();
-  const [tradeLicenseRequiredFormData, setTradeLicenseRequiredFormData] = useState();
+  const [tradeLicenseRequiredFormData, setTradeLicenseRequiredFormData] =
+    useState();
   const [tCountry, setTCountry] = useState();
   const [zoneNo, setZoneNo] = useState();
 
   const [error, setError] = useState();
 
   const history = useHistory();
-
 
   //application submit
   const submit = async (e) => {
@@ -92,7 +93,10 @@ export default function Application() {
 
       console.log(newApplication);
 
-      await Axios.post(constants.backend_url + "/application/register", newApplication).then((res) => console.log(res.data));
+      await Axios.post(
+        constants.backend_url + "/application/register",
+        newApplication
+      ).then((res) => console.log(res.data));
 
       history.push("/home");
     } catch (err) {
@@ -100,14 +104,11 @@ export default function Application() {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     if (localStorage.getItem("auth-token") == "") {
       history.push("/");
     }
-  },[])
-
-
-
+  }, []);
 
   return (
     <div>
@@ -193,7 +194,10 @@ export default function Application() {
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Owner First Name :
                         </label>
                       </div>
@@ -218,7 +222,10 @@ export default function Application() {
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Country :
                         </label>
                       </div>
@@ -243,7 +250,10 @@ export default function Application() {
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Middle Name :
                         </label>
                       </div>
@@ -263,36 +273,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Father/Husband First Name :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setFatherHusbandFirstName(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Last Name :
                         </label>
                       </div>
@@ -312,36 +303,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Middle Name :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setSMiddleName(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Pla Code :
                         </label>
                       </div>
@@ -361,36 +333,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Last Name :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setSLastName(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Owner SSSID No. :
                         </label>
                       </div>
@@ -410,36 +363,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Father/Husband :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setFatherHusband(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Email (if any) :
                         </label>
                       </div>
@@ -459,36 +393,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Residence Door No :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="number"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setResidenceDoorNo(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Phone No. :
                         </label>
                       </div>
@@ -508,36 +423,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Residence Address ( Line 1 ) :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setResidenceAddressLine1(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Fax :
                         </label>
                       </div>
@@ -557,36 +453,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Residence Address ( Line 2 ) :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setResidenceAddressLine2(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           City :
                         </label>
                       </div>
@@ -613,14 +490,17 @@ export default function Application() {
 
             {/* Trade Details Part */}
             <Container>
-              <h4>Trade Owner Details</h4>
+              <h4>Trade Business Details</h4>
               <br />
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade Title :
                         </label>
                       </div>
@@ -645,7 +525,10 @@ export default function Application() {
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Revenue Ward No :
                         </label>
                       </div>
@@ -670,7 +553,10 @@ export default function Application() {
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade Type :
                         </label>
                       </div>
@@ -690,50 +576,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Zone No. :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="form-check form-check-inline">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          id="inlineCheckbox1"
-                          value="Temporary"
-                          onChange={(e) => setZoneNo(e.target.value)}
-                        />
-                        <label className="form-check-label" htmlFor="inlineCheckbox1">
-                          Temporary
-                        </label>
-                      </div>
-                      <div className="form-check form-check-inline">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          id="inlineCheckbox2"
-                          value="Permenent"
-                          onChange={(e) => setZoneNo(e.target.value)}
-                        />
-                        <label className="form-check-label" htmlFor="inlineCheckbox2">
-                          Permenent
-                        </label>
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade Nature :
                         </label>
                       </div>
@@ -753,36 +606,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Election Ward No :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setElectionWardNo(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade Door No :
                         </label>
                       </div>
@@ -802,36 +636,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Building Permission No :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="number"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setBuildingPermissionNo(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade Address ( Line 1 ) :
                         </label>
                       </div>
@@ -851,36 +666,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Assessment No :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="number"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setAssessmentNo(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade Address ( Line 2 ) :
                         </label>
                       </div>
@@ -900,36 +696,17 @@ export default function Application() {
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          City :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setTCity(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <Row>
                 <Col md={6}>
                   <Row>
                     <Col>
                       <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
+                        <label
+                          htmlFor="inputPassword6"
+                          className="col-form-label"
+                        >
                           Trade License Required Form Data :
                         </label>
                       </div>
@@ -943,35 +720,15 @@ export default function Application() {
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setTradeLicenseRequiredFormData(e.target.value)}
+                          onChange={(e) =>
+                            setTradeLicenseRequiredFormData(e.target.value)
+                          }
                         />
                       </div>
                     </Col>
                   </Row>
                 </Col>
-                <Col md={6}>
-                  <Row>
-                    <Col>
-                      <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">
-                          Country :
-                        </label>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="col-auto">
-                        <input
-                          type="text"
-                          id="inputPassword6"
-                          className="form-control form-control-sm"
-                          aria-describedby="passwordHelpInline"
-                          required
-                          onChange={(e) => setTCountry(e.target.value)}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </Col>
+                <Col md={6}></Col>
               </Row>
               <br />
               <Button type="submit">Submit</Button>
@@ -980,9 +737,6 @@ export default function Application() {
               <br />
             </Container>
           </form>
-
-
-
         </Container>
       </div>
     </div>

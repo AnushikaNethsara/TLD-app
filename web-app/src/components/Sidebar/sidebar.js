@@ -58,16 +58,20 @@ const Sidebar = () => {
     localStorage.setItem("User_id", "");
     history.push("/login");
   };
- 
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <Nav>
+        <Nav className="justify-content-between">
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
           <NavIcon>
-            <button onClick={logout} type="button" class="btn btn-primary signout-btn">
+            <button
+              onClick={logout}
+              type="button"
+              class="btn btn-primary signout-btn"
+            >
               Sign Out
             </button>
           </NavIcon>

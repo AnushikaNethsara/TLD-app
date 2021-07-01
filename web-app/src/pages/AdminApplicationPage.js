@@ -243,8 +243,8 @@ function Table({ columns, data }) {
           const rowValue = row.values[id];
           return rowValue !== undefined
             ? String(rowValue)
-              .toLowerCase()
-              .startsWith(String(filterValue).toLowerCase())
+                .toLowerCase()
+                .startsWith(String(filterValue).toLowerCase())
             : true;
         });
       },
@@ -368,11 +368,12 @@ export default function AdminApplicationPage() {
     getAllApplications();
   }, []);
 
-
   //update application status
   const update = () => {
-    console.log("sra: " + status)
-    Axios.put(constants.backend_url + "/application/" + updateId, { status: status })
+    console.log("sra: " + status);
+    Axios.put(constants.backend_url + "/application/" + updateId, {
+      status: status,
+    })
       .then((res) => {
         getAllApplications();
         handleClose();
@@ -381,7 +382,7 @@ export default function AdminApplicationPage() {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   const getAllApplications = () => {
     Axios.get(constants.backend_url + "/application/getAllDetails")
@@ -399,14 +400,18 @@ export default function AdminApplicationPage() {
   const showButton = (id) => {
     return (
       <div className="ml-5">
-        <Button variant="primary" onClick={() => { handleShow(); setUpdateId(id) }} >
+        <Button
+          variant="primary"
+          onClick={() => {
+            handleShow();
+            setUpdateId(id);
+          }}
+        >
           Update
         </Button>
       </div>
-
     );
   };
-
 
   const columns = React.useMemo(
     () => [
@@ -471,34 +476,6 @@ export default function AdminApplicationPage() {
             accessor: "city",
           },
           {
-            Header: "Father/Husband First Name",
-            accessor: "spouseFName",
-          },
-          {
-            Header: "Father/Husband Middle Name",
-            accessor: "spouseLName",
-          },
-          {
-            Header: "Father/Husband Last Name",
-            accessor: "spouseMName",
-          },
-          {
-            Header: "Father/Husband",
-            accessor: "relationship",
-          },
-          {
-            Header: "Residence Door No",
-            accessor: "doorNo",
-          },
-          {
-            Header: "Residence Address ( Line 1 )",
-            accessor: "line1",
-          },
-          {
-            Header: "Residence Address ( Line 2 )",
-            accessor: "line2",
-          },
-          {
             Header: "Trade Title",
             accessor: "tradeTitle",
           },
@@ -512,7 +489,7 @@ export default function AdminApplicationPage() {
           },
           {
             Header: "Trade Nature",
-            accessor: "Trade Nature",
+            accessor: "tradeNature",
           },
           {
             Header: "Trade Door No",
@@ -531,39 +508,13 @@ export default function AdminApplicationPage() {
             accessor: "licenseDetails",
           },
           {
-            Header: "Zone No",
-            accessor: "zoneNo",
-            Filter: SelectColumnFilter,
-            filter: "includes",
-          },
-          {
-            Header: "Election Ward No",
-            accessor: "wardNo",
-          },
-          {
-            Header: "Building Permission No",
-            accessor: "permissionNo",
-          },
-          {
-            Header: "Assessment No",
-            accessor: "assessmentNo",
-          },
-          {
-            Header: "City",
-            accessor: "tCity",
-          },
-          {
-            Header: "Country",
-            accessor: "tCountry",
-          },
-          {
             Header: "Status",
             accessor: "status",
           },
           {
             Header: "Update Status",
             //accessor: "status",
-            accessor: d => showButton(d._id)
+            accessor: (d) => showButton(d._id),
             // Cell: showButton(),
           },
         ],
@@ -593,34 +544,51 @@ export default function AdminApplicationPage() {
           <div>
             <div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="flexRadioDefault" id="radio1"
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="radio1"
                   value={"Pending"}
-                  onChange={(e) => { setStatus(e.target.value) }}
+                  onChange={(e) => {
+                    setStatus(e.target.value);
+                  }}
                 />
                 <label className="form-check-label" htmlFor="radio1">
                   Pending
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="flexRadioDefault" id="radio2"
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="radio2"
                   value={"Accept"}
-                  onChange={(e) => { setStatus(e.target.value) }}
+                  onChange={(e) => {
+                    setStatus(e.target.value);
+                  }}
                 />
                 <label className="form-check-label" htmlFor="radio2">
                   Accept
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="flexRadioDefault" id="radio3"
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="radio3"
                   value={"Rejected"}
-                  onChange={(e) => { setStatus(e.target.value) }}
+                  onChange={(e) => {
+                    setStatus(e.target.value);
+                  }}
                 />
                 <label className="form-check-label" htmlFor="radio3">
                   Rejected
                 </label>
               </div>
             </div>
-
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -632,8 +600,6 @@ export default function AdminApplicationPage() {
           </Button>
         </Modal.Footer>
       </Modal>
-
-
     </>
   );
 }
