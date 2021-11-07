@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     const address = req.body.address;
     const sortCode = req.body.sortCode;
     const idealWeight = req.body.idealWeight;
-    const medicalHistory = Number(req.body.medicalHistory);
+    const medicalHistory = req.body.medicalHistory;
 
     const application = new Application({
       name,
@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
       address,
       sortCode,
       idealWeight,
-      medicalHistory
+      medicalHistory,
     });
 
     application

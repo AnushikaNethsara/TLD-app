@@ -415,23 +415,6 @@ export default function AdminApplicationPage() {
 
   const columns = React.useMemo(
     () => [
-      // {
-      //   Header: "Registration Details",
-      //   columns: [
-      //     {
-      //       Header: "UID",
-      //       accessor: "UID",
-      //     },
-      //     {
-      //       Header: "Citizen Ragistration Number",
-      //       accessor: "regNo",
-      //     },
-      //     {
-      //       Header: "Unique Application Id",
-      //       accessor: "applicationId",
-      //     },
-      //   ],
-      // },
       {
         Header: "Trade Owner Details",
         columns: [
@@ -445,68 +428,32 @@ export default function AdminApplicationPage() {
           },
           {
             Header: "Post Code",
-            accessor: "postCode",
+            accessor: "pCode",
           },
           {
             Header: "City",
             accessor: "city",
           },
           {
-            Header: "Account Number",
-            accessor: "aNum",
+            Header: "Account Name",
+            accessor: "accountName",
           },
           {
             Header: "Sort Code",
-            accessor: "sCode",
+            accessor: "sortCode",
           },
           {
             Header: "Security Pin",
-            accessor: "sPin",
+            accessor: "securityPin",
           },
-          {
-            Header: "Phone No.",
-            accessor: "phone",
-          },
-          {
-            Header: "Fax",
-            accessor: "fax",
-          },         
           {
             Header: "Ideal Weight",
-            accessor: "iWeight",
+            accessor: "idealWeight",
           },
           {
             Header: "Medical History",
-            accessor: "mHistory",
+            accessor: "medicalHistory",
           },
-          // {
-          //   Header: "Trade Type",
-          //   accessor: "tradeType",
-          // },
-          // {
-          //   Header: "Trade Nature",
-          //   accessor: "tradeNature",
-          // },
-          // {
-          //   Header: "Trade Door No",
-          //   accessor: "tradeDoorNo",
-          // },
-          // {
-          //   Header: "Trade Address ( Line 1 )",
-          //   accessor: "tLine1",
-          // },
-          // {
-          //   Header: "Trade Address ( Line 2 )",
-          //   accessor: "tLine2",
-          // },
-          // {
-          //   Header: "Trade License Required Form Data",
-          //   accessor: "licenseDetails",
-          // },
-          // {
-          //   Header: "Status",
-          //   accessor: "status",
-          // },
           {
             Header: "Update Status",
             //accessor: "status",

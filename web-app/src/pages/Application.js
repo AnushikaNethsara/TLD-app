@@ -1,49 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button, Modal } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "../components/nav/Navbar";
 import Axios from "axios";
 import constants from "../constants/constants";
 import { useHistory } from "react-router-dom";
 
 export default function Application() {
-  const [uid, setUid] = useState("");
-  const [citizenRagistrationNumber, setCitizenRagistrationNumber] =
-    useState("");
-  const [uniqueApplicationId, setUniqueApplicationId] = useState("");
-  const [ownerFirstName, setOwnerFirstName] = useState();
-  const [ocountry, setOCountry] = useState();
-  const [omiddleName, setOMiddleName] = useState();
-  const [olastName, setOLastName] = useState();
-  const [plaCode, setPlaCode] = useState();
-  const [ownerSSSIDNo, setOwnerSSSIDNo] = useState();
-  const [email, setEmail] = useState();
-  const [phoneNo, setPhoneNo] = useState();
-  const [fax, setFax] = useState();
-  const [ocity, setOCity] = useState();
-  const [fatherHusbandFirstName, setFatherHusbandFirstName] = useState();
-  const [sMiddleName, setSMiddleName] = useState();
-  const [sLastName, setSLastName] = useState();
-  const [fatherHusband, setFatherHusband] = useState();
-  const [residenceDoorNo, setResidenceDoorNo] = useState();
-  const [residenceAddressLine1, setResidenceAddressLine1] = useState();
-  const [residenceAddressLine2, setResidenceAddressLine2] = useState();
-
-  const [tradeTitle, setTradeTitle] = useState();
-  const [revenueWardNo, setRevenueWardNo] = useState();
-  const [tradeType, setTradeType] = useState();
-  const [tradeNature, setTradeNature] = useState();
-  const [electionWardNo, setElectionWardNo] = useState();
-  const [tradeDoorNo, setTradeDoorNo] = useState();
-  const [buildingPermissionNo, setBuildingPermissionNo] = useState();
-  const [tradeAddressLine1, setTradeAddressLine1] = useState();
-  const [assessmentNo, setAssessmentNo] = useState();
-  const [tradeAddressLine2, setTradeAddressLine2] = useState();
-  const [tCity, setTCity] = useState();
-  const [tradeLicenseRequiredFormData, setTradeLicenseRequiredFormData] =
-    useState();
-  const [tCountry, setTCountry] = useState();
-  const [zoneNo, setZoneNo] = useState();
-
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [pCode, setPCode] = useState("");
+  const [city, setCity] = useState("");
+  const [accountName, srtAccountName] = useState("");
+  const [sortCode, setSortCode] = useState("");
+  const [securityPin, setSecurityPin] = useState("");
+  const [idealWeight, setIdealWeight] = useState(0);
+  const [medicalHistory, setMedicalHistory] = useState("");
   const [error, setError] = useState();
 
   const history = useHistory();
@@ -53,42 +24,15 @@ export default function Application() {
     e.preventDefault();
     try {
       const newApplication = {
-        UID: uid,
-        regNo: citizenRagistrationNumber,
-        applicationId: uniqueApplicationId,
-        fName: ownerFirstName,
-        mName: omiddleName,
-        lName: olastName,
-        pCode: plaCode,
-        ssId: ownerSSSIDNo,
-        email: email,
-        phone: phoneNo,
-        fax: fax,
-        city: ocity,
-        country: ocountry,
-        spouseFName: fatherHusbandFirstName,
-        spouseMName: sMiddleName,
-        spouseLName: sLastName,
-        relationship: fatherHusband,
-        doorNo: residenceDoorNo,
-        line1: residenceAddressLine1,
-        line2: residenceAddressLine2,
-        tradeTitle: tradeTitle,
-        tradeType: tradeType,
-        tradeNature: tradeNature,
-        tLine1: tradeAddressLine1,
-        tLine2: tradeAddressLine2,
-        licenseDetails: tradeLicenseRequiredFormData,
-        wardNo: electionWardNo,
-        zoneNo: zoneNo,
-        permissionNo: buildingPermissionNo,
-        assessmentNo: assessmentNo,
-        tCity: tCity,
-        tCountry: tCountry,
-        tradeDoorNo: tradeDoorNo,
-        revenueWardNo: revenueWardNo,
-        status: "New",
-        submitedEmail: localStorage.getItem("auth-email"),
+        name,
+        pCode,
+        accountName,
+        securityPin,
+        city,
+        address,
+        sortCode,
+        idealWeight,
+        medicalHistory,
       };
 
       console.log(newApplication);
@@ -118,7 +62,7 @@ export default function Application() {
           <h2 className="text-center" style={{ marginTop: "20px" }}>
             Application For Trade License
           </h2>
-          <form onSubmit={submit}>            
+          <form onSubmit={submit}>
             <br />
 
             {/* Trade Owner Details part */}
@@ -142,11 +86,12 @@ export default function Application() {
                       <div className="col-auto">
                         <input
                           type="text"
+                          value={name}
                           id="inputPassword6"
                           className="form-control form-control-sm"
                           aria-describedby="passwordHelpInline"
                           required
-                          onChange={(e) => setOwnerFirstName(e.target.value)}
+                          onChange={(e) => setName(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -172,12 +117,13 @@ export default function Application() {
                       <div className="col-auto">
                         <input
                           type="text"
+                          value={address}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setOMiddleName(e.target.value)}
+                          onChange={(e) => setAddress(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -202,12 +148,13 @@ export default function Application() {
                       <div className="col-auto">
                         <input
                           type="text"
+                          value={pCode}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setOLastName(e.target.value)}
+                          onChange={(e) => setPCode(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -231,13 +178,14 @@ export default function Application() {
                     <Col>
                       <div className="col-auto">
                         <input
-                          type="number"
+                          type="text"
+                          value={city}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setPlaCode(e.target.value)}
+                          onChange={(e) => setCity(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -254,20 +202,21 @@ export default function Application() {
                           htmlFor="inputPassword6"
                           className="col-form-label"
                         >
-                          Account Number :
+                          Account Name :
                         </label>
                       </div>
                     </Col>
                     <Col>
                       <div className="col-auto">
                         <input
-                          type="number"
+                          type="text"
+                          value={accountName}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setOwnerSSSIDNo(e.target.value)}
+                          onChange={(e) => srtAccountName(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -291,13 +240,14 @@ export default function Application() {
                     <Col>
                       <div className="col-auto">
                         <input
-                          type="email"
+                          type="text"
+                          value={sortCode}
                           class="form-control form-control-sm"
                           id="exampleInputEmail1"
                           aria-describedby="emailHelp"
                           size="sm"
                           required
-                          onChange={(e) => setEmail(e.target.value)}
+                          onChange={(e) => setSortCode(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -322,12 +272,13 @@ export default function Application() {
                       <div className="col-auto">
                         <input
                           type="number"
+                          value={securityPin}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setPhoneNo(e.target.value)}
+                          onChange={(e) => setSecurityPin(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -352,12 +303,13 @@ export default function Application() {
                       <div className="col-auto">
                         <input
                           type="number"
+                          value={idealWeight}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setFax(e.target.value)}
+                          onChange={(e) => setIdealWeight(e.target.value)}
                         />
                       </div>
                     </Col>
@@ -382,18 +334,23 @@ export default function Application() {
                       <div className="col-auto">
                         <input
                           type="text"
+                          value={medicalHistory}
                           id="inputPassword6"
                           className="form-control form-control-sm "
                           aria-describedby="passwordHelpInline"
                           size="sm"
                           required
-                          onChange={(e) => setOCity(e.target.value)}
+                          onChange={(e) => setMedicalHistory(e.target.value)}
                         />
                       </div>
                     </Col>
                   </Row>
                 </Col>
               </Row>
+              <br></br>
+              <button type="submit" className="btn btn-primary">
+                Save
+              </button>
             </Container>
             <br />
           </form>
