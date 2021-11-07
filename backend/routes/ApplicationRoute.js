@@ -6,56 +6,26 @@ let Application = require("../models/ApplicationModel");
 //application form router//
 router.post("/register", async (req, res) => {
   try {
-    const UID = req.body.UID;
-    const regNo = req.body.regNo;
-    const applicationId = req.body.applicationId;
-    const fName = req.body.fName;
-    const mName = req.body.mName;
-    const lName = req.body.lName;
+    const name = req.body.name;
     const pCode = req.body.pCode;
-    const ssId = req.body.ssId;
-    const email = req.body.email;
-    const phone = Number(req.body.phone);
-    const fax = Number(req.body.fax);
+    const accountName = req.body.accountName;
+    const securityPin = req.body.securityPin;
     const city = req.body.city;
-    const country = req.body.country;
-
-    const tradeTitle = req.body.tradeTitle;
-    const tradeType = req.body.tradeType;
-    const tradeNature = req.body.tradeNature;
-    const tLine1 = req.body.tLine1;
-    const tLine2 = req.body.tLine2;
-    const licenseDetails = req.body.licenseDetails;
-
-    const tradeDoorNo = req.body.tradeDoorNo;
-    const revenueWardNo = req.body.revenueWardNo;
-    const status = req.body.status;
-    const submitedEmail = req.body.submitedEmail;
+    const address = req.body.address;
+    const sortCode = req.body.sortCode;
+    const idealWeight = req.body.idealWeight;
+    const medicalHistory = Number(req.body.medicalHistory);
 
     const application = new Application({
-      UID,
-      regNo,
-      applicationId,
-      fName,
-      mName,
-      lName,
+      name,
       pCode,
-      ssId,
-      email,
-      phone,
-      fax,
+      accountName,
+      securityPin,
       city,
-      country,
-      tradeTitle,
-      tradeType,
-      tradeNature,
-      tLine1,
-      tLine2,
-      licenseDetails,
-      tradeDoorNo,
-      revenueWardNo,
-      status,
-      submitedEmail,
+      address,
+      sortCode,
+      idealWeight,
+      medicalHistory
     });
 
     application

@@ -3,27 +3,7 @@ const Schema = mongoose.Schema;
 
 //application form model
 let application = new Schema({
-  UID: {
-    type: String,
-    required: true,
-  },
-  regNo: {
-    type: String,
-    required: true,
-  },
-  applicationId: {
-    type: String,
-    required: true,
-  },
-  fName: {
-    type: String,
-    required: true,
-  },
-  mName: {
-    type: String,
-    required: true,
-  },
-  lName: {
+  name: {
     type: String,
     required: true,
   },
@@ -31,19 +11,11 @@ let application = new Schema({
     type: String,
     required: true,
   },
-  ssId: {
+  accountName: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: Number,
-    required: true,
-  },
-  fax: {
+  securityPin: {
     type: Number,
     required: true,
   },
@@ -51,46 +23,19 @@ let application = new Schema({
     type: String,
     required: true,
   },
-  country: {
+  address: {
     type: String,
     required: true,
   },
-  tradeTitle: {
+  sortCode: {
     type: String,
     required: true,
   },
-  tradeType: {
-    type: String,
+  idealWeight: {
+    type: Number,
     required: true,
   },
-  tradeNature: {
-    type: String,
-    required: true,
-  },
-  tLine1: {
-    type: String,
-    required: true,
-  },
-  tLine2: {
-    type: String,
-  },
-  licenseDetails: {
-    type: String,
-    required: true,
-  },
-  tradeDoorNo: {
-    type: String,
-    required: true,
-  },
-  revenueWardNo: {
-    type: String,
-    required: true,
-  },
-  status: {
-    type: String,
-    required: true,
-  },
-  submitedEmail: {
+  medicalHistory: {
     type: String,
     required: true,
   },
