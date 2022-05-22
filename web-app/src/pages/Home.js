@@ -25,7 +25,7 @@ class Home extends Component {
       <div>
         <Navbar />
         <Jumbotron>
-          <h1 className="text-center mt-5">Welcome to TLD-APP</h1>
+          <h1 className="text-center mt-5">Welcome to YLG-APP</h1>
           <div className="text-center mt-5">
             <Link to="/application">
               <button type="button" className="btn btn-primary">

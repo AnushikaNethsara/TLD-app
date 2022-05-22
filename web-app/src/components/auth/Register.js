@@ -35,6 +35,7 @@ export default function Register() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
+      localStorage.setItem("auth-email", loginRes.data.user.email);
       history.push("/home");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);

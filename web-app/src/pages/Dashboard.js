@@ -1,11 +1,13 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState ,useEffect} from "react";
 import Sidebar from "../components/Sidebar/sidebar";
 import { Jumbotron, Modal, Box } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [status, setStatus] = useState("");
+  const history = useHistory();
   const update = () => {
     console.log("sra: " + status)
   }
@@ -13,6 +15,11 @@ const Dashboard = () => {
   const handleModal = () => {
     setShow(!show);
   }
+  useEffect(() => {
+    if (localStorage.getItem("auth-token") == "") {
+      history.push("/");
+    }
+  }, [])
  
   return (
     <div>

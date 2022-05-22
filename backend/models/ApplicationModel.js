@@ -39,6 +39,14 @@ let application = new Schema({
     type: String,
     required: true,
   },
+  submitedEmail:{
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Application", application);

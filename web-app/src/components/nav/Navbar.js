@@ -11,7 +11,7 @@ export class navbar extends Component {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container fluid>
           <Link class="navbar-brand" to="/home">
-            TLD APP
+            YLG APP
           </Link>
           {/* <Navbar.Brand href="#home">Dashboard</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

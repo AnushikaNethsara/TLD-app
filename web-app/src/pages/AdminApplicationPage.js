@@ -9,9 +9,11 @@ import {
   useAsyncDebounce,
 } from "react-table";
 import { matchSorter } from "match-sorter";
+import { useHistory } from "react-router-dom";
 import constants from "../constants/constants";
 import Axios from "axios";
 import "./style.css";
+
 
 const Styles = styled.div`
   padding: 1rem;
@@ -363,9 +365,13 @@ export default function AdminApplicationPage() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const history = useHistory();
 
   useEffect(() => {
     getAllApplications();
+    if (localStorage.getItem("auth-token") == "") {
+      history.push("/");
+    }
   }, []);
 
   //update application status

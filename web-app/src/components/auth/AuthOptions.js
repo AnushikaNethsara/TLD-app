@@ -19,6 +19,7 @@ export default function AuthOptions() {
     });
     localStorage.setItem("auth-token", "");
     localStorage.setItem("User_id", "");
+    localStorage.setItem("auth-email", "");
     history.push("/login");
   };
 

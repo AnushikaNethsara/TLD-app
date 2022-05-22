@@ -33,6 +33,8 @@ class MyApplications extends Component {
         let email = localStorage.getItem("auth-email")
         Axios.get(constants.backend_url + "/application/" + email)
             .then((res) => {
+                console.log("API: " + constants.backend_url + "/application/" + email)
+                console.log("DATA: " + res.data)
                 this.setState({
                     data: res.data
                 })
@@ -52,7 +54,7 @@ class MyApplications extends Component {
                             <Table striped bordered hover>
                                 <thead>
                                     <tr>
-                                        <th>UID</th>
+                                        <th>#</th>
                                         <th>Application Status</th>
                                     </tr>
                                 </thead>
@@ -61,7 +63,7 @@ class MyApplications extends Component {
                                         this.state.data.map((item,index)=>{
                                             return(
                                                 <tr>
-                                                    <td>{item.UID}</td>
+                                                    <td>{index+1}</td>
                                                     <td>{item.status}</td>
                                                 </tr>
                                             )

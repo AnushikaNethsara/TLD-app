@@ -15,6 +15,8 @@ export default function Application() {
   const [securityPin, setSecurityPin] = useState("");
   const [idealWeight, setIdealWeight] = useState(0);
   const [medicalHistory, setMedicalHistory] = useState("");
+  const [submitedEmail, setSubmitedEmail] = useState(localStorage.getItem("auth-email"));
+  
   const [error, setError] = useState();
 
   const history = useHistory();
@@ -33,6 +35,8 @@ export default function Application() {
         sortCode,
         idealWeight,
         medicalHistory,
+        submitedEmail,
+        status: "New",
       };
 
       console.log(newApplication);
@@ -60,14 +64,14 @@ export default function Application() {
       <div className="my-5">
         <Container>
           <h2 className="text-center" style={{ marginTop: "20px" }}>
-            Application For Trade License
+            Gym Membership Registration
           </h2>
           <form onSubmit={submit}>
             <br />
 
             {/* Trade Owner Details part */}
             <Container>
-              <h4>Trade Owner Details</h4>
+              <h4>User Information</h4>
               <br />
               <Row>
                 <Col md={6}>
@@ -193,6 +197,9 @@ export default function Application() {
                 </Col>
                 <Col md={6}></Col>
               </Row>
+              <hr/>
+              <h4>Bank Details</h4>
+              <br />
               <Row>
                 <Col md={6}>
                   <Row>
@@ -286,6 +293,9 @@ export default function Application() {
                 </Col>
                 <Col md={6}></Col>
               </Row>
+              <hr />
+              <h4>General Gym Information</h4>
+              <br />
               <Row>
                 <Col md={6}>
                   <Row>
